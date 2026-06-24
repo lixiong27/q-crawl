@@ -1,0 +1,47 @@
+============================================
+  头条API服务 - 常用命令 (Mac版)
+============================================
+
+一、服务管理
+------------
+./deploy.sh      # 首次部署（自动安装依赖）
+./start.sh       # 启动服务
+./stop.sh        # 停止服务
+./restart.sh     # 重启服务
+./status.sh      # 查看状态
+./logs.sh        # 查看日志
+./logs.sh -f     # 实时查看日志
+
+二、测试接口
+------------
+# 健康检查
+curl http://localhost:8000/health
+
+# 获取文章列表
+curl "http://localhost:8000/api/v1/toutiao/user/articles?token=YOUR_TOKEN&max_articles=5"
+
+# 查看API文档
+浏览器打开: http://localhost:8000/docs
+
+三、Conda 环境管理
+------------
+# 激活环境
+conda activate playwright
+
+# 退出环境
+conda deactivate
+
+四、故障排查
+------------
+# 查看端口占用 (Mac)
+lsof -i :8000
+
+# 查看进程
+ps aux | grep toutiao_api.py
+
+# 查看完整日志
+cat logs/toutiao.log
+
+# 手动启动（前台运行，便于调试）
+python toutiao_api.py
+============================================

@@ -1,0 +1,30 @@
+# 日志
+logs/
+*.log
+
+# PID
+*.pid
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# 环境
+.env
+.env.local
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 临时
+tmp/
+temp/
+*.tmp
+.DS_Store
