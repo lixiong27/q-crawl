@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
 """
 头条用户文章列表抓取服务（FastAPI 版）
