@@ -119,6 +119,15 @@ EXTRACT_JS = """
         const mDay = timeStr.match(/(\\d+)天前/);
         if (mDay) publishTime = now - parseInt(mDay[1]) * 86400;
 
+        const mFullDate = timeStr.match(/(\\d{4})年(\\d{1,2})月(\\d{1,2})日/);
+        if (mFullDate) publishTime = Math.floor(new Date(parseInt(mFullDate[1]), parseInt(mFullDate[2]) - 1, parseInt(mFullDate[3])).getTime() / 1000);
+
+        const mMonthDay = timeStr.match(/(\\d{1,2})月(\\d{1,2})日/);
+        if (mMonthDay) {
+            const curYear = new Date().getFullYear();
+            publishTime = Math.floor(new Date(curYear, parseInt(mMonthDay[1]) - 1, parseInt(mMonthDay[2])).getTime() / 1000);
+        }
+
         let groupId = '';
         const gid = url.match(/\\/(?:article|group)\\/(\\d+)/);
         if (gid) groupId = gid[1];
